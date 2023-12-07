@@ -2,6 +2,7 @@ import { Producto } from "./producto.js";
 import { TaskManager } from "./taskManager.js";
 import { productStorage } from "./localStorage.js";
 import { searchProducts } from "./searchProducts.js";
+import { sortAuthor, sortPrice, sortQuantity, sortTitle } from "./sortProducts.js";
 
 const tituloProducto = document.getElementById("product-title");
 const autorProducto = document.getElementById("product-author");
@@ -64,13 +65,13 @@ let defaultProducts = [
   new Producto(10, "The Hobbit", "J.R.R. Tolkien", getRandomQuantity(), 19.99),
 ];
 
-//Ahora los añadimos al localStorage
-productStorage(defaultProducts);
-
 //Añadimos los productos por defecto al inventario
 defaultProducts.forEach((producto) => {
   inventory.addProduct(producto);
 });
+
+//Ahora los añadimos al localStorage
+productStorage(inventory.productos);
 
 const addBtn = document.getElementById("btn-form");
 addBtn.addEventListener("click", function (e) {
@@ -116,3 +117,29 @@ const btnSearch = document.getElementById("btn-search");
 btnSearch.addEventListener("click", () => {
   searchProducts(inventory.productos);
 });
+
+//Filtros, para filtrar por cada uno de los campos hacer click en el encabezado de la tabla de cada elemento, mas informacion en sortProducts.js
+const titleSort = document.getElementById("title-sort");
+titleSort.addEventListener("click", () => {
+  sortTitle(inventory.productos);
+  inventory.showInventory();
+});
+
+const authorSort = document.getElementById("author-sort");
+authorSort.addEventListener("click", () => {
+  sortAuthor(inventory.productos);
+  inventory.showInventory();
+});
+
+const quantitySort = document.getElementById("quantity-sort");
+quantitySort.addEventListener("click", () => {
+  sortQuantity(inventory.productos);
+  inventory.showInventory();
+});
+
+const priceSort = document.getElementById("price-sort");
+priceSort.addEventListener("click", () => {
+  sortPrice(inventory.productos);
+  inventory.showInventory();
+});
+
