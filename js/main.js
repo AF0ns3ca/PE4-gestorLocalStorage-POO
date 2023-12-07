@@ -1,8 +1,18 @@
+/**
+ * Autor: Alvaro Fonseca Hernández
+ * Github: https://github.com/AF0ns3ca/PE4-gestorLocalStorage-POO.git
+ */
+
 import { Producto } from "./producto.js";
 import { TaskManager } from "./taskManager.js";
 import { productStorage } from "./localStorage.js";
 import { searchProducts } from "./searchProducts.js";
-import { sortAuthor, sortPrice, sortQuantity, sortTitle } from "./sortProducts.js";
+import {
+  sortAuthor,
+  sortPrice,
+  sortQuantity,
+  sortTitle,
+} from "./sortProducts.js";
 
 const tituloProducto = document.getElementById("product-title");
 const autorProducto = document.getElementById("product-author");
@@ -81,16 +91,20 @@ addBtn.addEventListener("click", function (e) {
   const precio = precioProducto.value;
   const id = Date.now(); // Usar la fecha actual como id
 
-  // Crear un nuevo producto con los valores obtenidos
-  const product = new Producto(id, titulo, autor, cantidad, precio);
-  // Añadir el producto al inventario
-  inventory.addProduct(product);
+  if (titulo && autor && cantidad && precio) {
+    // Crear un nuevo producto con los valores obtenidos
+    const product = new Producto(id, titulo, autor, cantidad, precio);
+    // Añadir el producto al inventario
+    inventory.addProduct(product);
 
-  //Limpiamos los campos del formulario
-  document.getElementById("product-title").value = "";
-  document.getElementById("product-author").value = "";
-  document.getElementById("product-quantity").value = "";
-  document.getElementById("product-price").value = "";
+    //Limpiamos los campos del formulario
+    document.getElementById("product-title").value = "";
+    document.getElementById("product-author").value = "";
+    document.getElementById("product-quantity").value = "";
+    document.getElementById("product-price").value = "";
+  } else {
+    alert("Por favor, rellene todos los campos");
+  }
 });
 
 const saveBtn = document.getElementById("btn-save");
@@ -101,15 +115,19 @@ saveBtn.addEventListener("click", function (e) {
   const cantidad = cantidadProducto.value;
   const precio = precioProducto.value;
 
-  // Añadir el producto al inventario
-  inventory.updateProduct(id, titulo, autor, cantidad, precio);
+  if (titulo && autor && cantidad && precio) {
+    // Añadir el producto al inventario
+    inventory.updateProduct(id, titulo, autor, cantidad, precio);
 
-  //Limpiamos los campos del formulario
-  document.getElementById("product-id").remove();
-  document.getElementById("product-title").value = "";
-  document.getElementById("product-author").value = "";
-  document.getElementById("product-quantity").value = "";
-  document.getElementById("product-price").value = "";
+    //Limpiamos los campos del formulario
+    document.getElementById("product-id").remove();
+    document.getElementById("product-title").value = "";
+    document.getElementById("product-author").value = "";
+    document.getElementById("product-quantity").value = "";
+    document.getElementById("product-price").value = "";
+  } else {
+    alert("Por favor, rellene todos los campos");
+  }
 });
 
 //Boton para buscar productos
@@ -142,4 +160,3 @@ priceSort.addEventListener("click", () => {
   sortPrice(inventory.productos);
   inventory.showInventory();
 });
-
