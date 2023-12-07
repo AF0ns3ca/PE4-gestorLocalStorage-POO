@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="head">
+          <div class="head-title">
+            <!-- Simbolo HTML para un icono que se asemeja a un icono de home -->
+            <a href="../index.html"><h1 class="home">&#x2b89;</h1></a>
+            <div id="total-price">
+              <h1>Inventario</h1>
+              <span>Precio Total Inventario: </span>
+              <span id="total-price-label"></span>
+            </div>
+          </div>
+          <div class="head-actions">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Introduce para buscar" required
+            />
+            <button id="btn-search">Buscar</button>
+            <form class="radio-group">
+              <label for="group">Buscar por:</label>
+              <select name="group" id="select-group">
+                <option value="title">Titulo</option>
+                <option value="author">Autor</option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <div class="inventoryT">
+          <table class="inventory-table">
+            <tr>
+              <th id="title-sort" class="sort">Titulo</th>
+              <th id="author-sort" class="sort">Autor</th>
+              <th id="quantity-sort" class="sort">Cantidad</th>
+              <th id="price-sort" class="sort">Precio</th>
+              <th>Acciones</th>
+            </tr>
+            <tbody id="inventTable"></tbody>
+          </table>
+        </div>
+        <div class="add-form" id="add-form">
+            <label for="product-title">Titulo:</label>
+            <input type="text" id="product-title" placeholder="Introduce título" required />
+
+            <label for="product-author">Autor:</label>
+            <input type="text" id="product-author" placeholder="Introduce autor" required />
+      
+            <label for="product-quantity">Cantidad:</label>
+            <input type="number" id="product-quantity" placeholder="Introduce cantidad" required />
+      
+            <label for="product-price">Precio:</label>
+            <input type="number" step="0.01" id="product-price" placeholder="Introduce precio" required />
+      
+            <button class="btn-form" id="btn-form">Agregar producto</button>
+            <button class="btn-form hidden" id="btn-save">Guardar Cambios</button>
+        </div>
+      </div>
+      <script src="../js/main.js" type="module"></script>
+    </div>
+  </body>
+</html>

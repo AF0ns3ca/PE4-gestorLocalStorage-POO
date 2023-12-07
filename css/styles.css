@@ -1,0 +1,279 @@
+/*Downloaded font added*/
+@font-face {
+  font-family: "Allerta";
+  src: url("/assets/fonts/AllertaStencil/AllertaStencil-Regular.ttf")
+    format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #77dfc0, 10%, #d0e9e1);
+  background-color: #f6f9ed;
+  font-family: Allerta;
+}
+
+.container {
+  width: 100%;
+  padding: 10px;
+  
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #002d17;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.head-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.head-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.head h1 {
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.home {
+  font-size: 50px;
+  transition: 0.5s;
+  &:hover {
+    font-size: 60px;
+  }
+}
+.head-actions input {
+  width: 100%;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.head button,
+.btn-form {
+  background-color: #a8e6d3;
+  color: #002d17;
+  border: 2px solid #002d17;
+  margin-left: 10px;
+}
+
+.head button:hover {
+  background-color: #002d17;
+  color: #a8e6d3;
+  border: 2px solid #a8e6d3;
+}
+
+.btn-form:hover {
+  background-color: #002d17;
+  color: #a8e6d3;
+  border: 2px solid #a8e6d3;
+}
+
+.radio-group {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.radio-group select {
+  width: 100%;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.content {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.up-row,
+.bottom-row {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 120px;
+}
+
+.inventory,
+.actionFilter,
+.actionAdd,
+.actionEdit {
+  width: 400px;
+  height: 350px;
+  background-color: #002d176c;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: Allerta;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+h2 {
+  padding: 5px;
+}
+
+.content img {
+  width: 250px;
+  height: 300px;
+  transition: 0.5s;
+  &:hover {
+    width: 200px;
+    height: 250px;
+  }
+}
+
+footer {
+  margin: 10px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.title {
+  font-family: sans-serif;
+}
+
+button {
+  margin: 2% 2% 2% 2%;
+  background-color: #002d17;
+  border: 1px solid #002d17;
+  color: #a8e6d3;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: #d0e9e1;
+    color: #002d17;
+  }
+}
+
+/*inventory.html*/
+.inventoryT {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: Allerta;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+.inventory-table th {
+  background-color: #002d17;
+  color: white;
+}
+
+.inventory-table th,
+.inventory-table td {
+  border: 1px solid #002d17;
+  padding: 8px;
+  text-align: center;
+}
+.inventory-table tr:hover {
+  background-color: #002d1786;
+  color: #d0e9e1;
+}
+.inventory-table tr:hover button {
+  background-color: #d0e9e1;
+  color: #002d17;
+  border: 1px solid #002d17;
+}
+
+.found {
+  background-color: #002d17ae;
+  color: #d0e9e1;
+}
+
+.found button {
+  background-color: #d0e9e1;
+  color: #002d17;
+  border: 1px solid #002d17;
+}
+
+.add-form {
+  width: 100%;
+  display: flex;
+  border-radius: 3px;
+  background-color: #002d17;
+}
+.add-form {
+  width: 100%;
+  padding-left: 20px;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-form label {
+  margin-left: 8px;
+}
+
+.add-form input {
+  width: 100%;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-form {
+  width: 150px;
+  min-width: 150px;
+}
+
+.hidden {
+  display: none;
+}
+
+.total-price {
+  display: flex;
+  flex-direction: column;
+}
+
+th{
+  cursor: pointer;
+}
