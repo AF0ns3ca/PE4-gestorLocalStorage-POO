@@ -1,4 +1,4 @@
-export class Product{
+export class Producto{
     #id;
     #titulo;
     #autor;
