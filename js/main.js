@@ -3,6 +3,7 @@
  * Github: https://github.com/AF0ns3ca/PE4-gestorLocalStorage-POO.git
  */
 
+//Importamos las clases y funciones necesarias
 import { Producto } from "./producto.js";
 import { TaskManager } from "./taskManager.js";
 import { productStorage } from "./localStorage.js";
@@ -14,18 +15,22 @@ import {
   sortTitle,
 } from "./sortProducts.js";
 
+//Obtenemos los elementos del formulario
 const tituloProducto = document.getElementById("product-title");
 const autorProducto = document.getElementById("product-author");
 const cantidadProducto = document.getElementById("product-quantity");
 const precioProducto = document.getElementById("product-price");
 
+//Funcion para generar numeros random para la cantidad de productos
 const getRandomQuantity = () => {
   return Math.floor(Math.random() * 30) + 1;
   //floor es para redondear, ponemos 30 para generar hasta 20 los numeros random
 };
 
+//Creamos una instancia de la clase TaskManager que será nuestro inventario
 const inventory = new TaskManager();
 
+//Creamos un array de productos por defecto para que no esté vacio el inventario
 let defaultProducts = [
   new Producto(1, "Mistborn", "Brandon Sanderson", getRandomQuantity(), 15.5),
   new Producto(
@@ -83,6 +88,7 @@ defaultProducts.forEach((producto) => {
 //Ahora los añadimos al localStorage
 productStorage(inventory.productos);
 
+//Metodo para añadir el pructo al inventario cogiendo los datos del formulario de la parte inferior de la pagina
 const addBtn = document.getElementById("btn-form");
 addBtn.addEventListener("click", function (e) {
   const titulo = tituloProducto.value;
@@ -107,6 +113,7 @@ addBtn.addEventListener("click", function (e) {
   }
 });
 
+//Boton para guardar los cambios de un producto editado que también cogerá los datos del formulario de la parte inferior de la pagina
 const saveBtn = document.getElementById("btn-save");
 saveBtn.addEventListener("click", function (e) {
   const id = document.getElementById("product-id").value;

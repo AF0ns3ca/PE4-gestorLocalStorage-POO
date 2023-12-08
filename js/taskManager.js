@@ -1,11 +1,16 @@
+//Clase TaskManager que representa el inventario de la tienda. 
+//Tendrá un constructor que inicializará el array de productos y los metodos para añadir, editar y borrar productos del inventario.
 import { totalPrice } from "./totalprice.js";
 export class TaskManager {
+  //Atributos privados
   #productos;
 
+  //Constructor por parametros
   constructor() {
     this.#productos = [];
   }
 
+  //Getters y setters
   get productos() {
     return this.#productos;
   }
@@ -14,6 +19,7 @@ export class TaskManager {
     this.#productos = productos;
   }
 
+  //Metodo añadir producto al inventario, se le pasa el producto que es una instancia de la clase Producto
   addProduct(producto) {
     this.#productos.push(producto);
     // Crea un nuevo objeto con los detalles del producto y se envia a localStorage convertido en JSON.
@@ -29,10 +35,14 @@ export class TaskManager {
       JSON.stringify(productoNormal)
     );
 
+    //Volvemos a mostrar el inventario para que se actualice la tabla
     this.showInventory();
+    //Calculamos el precio total de los productos que hay en el inventario con el nuevo producto añadido
     totalPrice(this.productos);
   }
 
+  //Metodo editar producto del inventario, se le pasa el id del producto que se quiere editar. 
+  //Lo que hace es mandar al formulario de añadir producto los datos del producto que se quiere editar para que se puedan modificar
   editProduct(id) {
     //SI existe el elemento input con id product-id, lo borramos
     if (document.getElementById("product-id")) {
@@ -54,6 +64,7 @@ export class TaskManager {
     document.getElementById("add-form").appendChild(hiddenId);
   }
 
+  //Metodo update que coge los datos del formulario de añadir producto y actualiza el producto que se quiere editar y lo vuelve a mostrar en el inventario a la vez que se guarda en el localStorage
   updateProduct(id, titulo, autor, cantidad, precio) {
     let producto = this.productos.find((producto) => producto.id == id); // Encuentra el producto por id
     localStorage.removeItem(`Producto: ${id}`); // Elimina la versión anterior del producto del almacenamiento local
@@ -87,6 +98,7 @@ export class TaskManager {
     }
   }
 
+  //Metodo borrar producto del inventario, se le pasa el id del producto que se quiere borrar y tambien se borra del localStorage
   deleteProduct(id) {
     this.productos = this.productos.filter((producto) => producto.id !== id); // Filtrar y actualizar la lista de productos
     localStorage.removeItem(`Producto: ${id}`); // Eliminar el producto del almacenamiento local
@@ -94,6 +106,7 @@ export class TaskManager {
     totalPrice(this.productos);
   }
 
+  //Metodo para mostrar el inventario, se le pasa el array de productos que es una instancia de la clase TaskManager en este caso y lo muestra en la tabla creando las celdas y añadiendolas a la tabla
   showInventory() {
     const cleanTable = document.getElementById("inventTable");
     cleanTable.innerHTML = "";
@@ -124,6 +137,8 @@ export class TaskManager {
       const editButton = document.createElement("button");
       editButton.innerText = "Editar";
       editButton.addEventListener("click", () => {
+        //Hacemos que cuando se pulse, la pantalla se desplace hasta el formulario de añadir producto
+        document.getElementById("add-form").scrollIntoView();
         this.editProduct(producto.id);
         // Cambiar el botón de guardar por el de editar
         const saveBtn = document.getElementById("btn-save");

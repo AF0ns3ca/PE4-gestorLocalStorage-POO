@@ -1,4 +1,5 @@
-//Metodo para buscar dentro del array del inventario. Se podrá buscar en funcion de dos valores, titulo y autor
+//Metodo para buscar dentro del array del inventario, se le pasa el array inventory que es una instancia de la clase TaskManager en este caso. 
+//Se podrá buscar en funcion de dos valores, titulo y autor
 export const searchProducts = (inventory) => {
     let productFound = false;
     cleanClasses(inventory);

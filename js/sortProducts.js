@@ -1,6 +1,7 @@
-import { TaskManager } from "./taskManager.js";
 //Filtros
+//Se le pasa a cada uno de los metodos el array de productos que es una instancia de la clase TaskManager
 //No es la forma más efectiva ni eficiente de realizar este tipo de filtros pero fue un añadido de ultima hora 
+
 //Filtrar por titulo, cuando se da un click filtra alfabeticamente de A a Z, si se le da otra vez, filtra de Z a A y si se le da una vez más deja el orden como estaba al principio
 const titleSort = document.getElementById("title-sort");
 export const sortTitle = (inventory) => {

@@ -1,10 +1,13 @@
+//Clase Producto que representa un producto de la tienda, uno de los libros en este caso
 export class Producto{
+    //Atributos privados
     #id;
     #titulo;
     #autor;
     #cantidad;
     #precio;
 
+    //Constructor por parametros
     constructor(id, titulo, autor, cantidad, precio){
         this.#id = id;
         this.#titulo = titulo;
@@ -13,6 +16,7 @@ export class Producto{
         this.#precio = precio;
     }
 
+    //Getters y setters
     get id(){
         return this.#id;
     }

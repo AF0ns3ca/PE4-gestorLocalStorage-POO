@@ -13,6 +13,8 @@
 
 body {
     font-family: Allerta;
+
+    /*Imagen de fondo de la carpeta assets y con las configuraciones necesarias para que la imagen se adapte al fondo, no se mueva, no se repita y este centrada*/
     background-image: url("../assets/imgs/wallpaper.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -298,10 +300,19 @@ button {
 
 th{
   cursor: pointer;
-  
 }
 
-/*Este keyframe hara ue el titulo de la pagina aparezca como si se estuviese escribiendo*/
+/*Pseudoselector que pone la primera letra en negrita de la penultima fila de la tabla en negrita y un poco mas grande, en este casi será el simbolo de dolar*/
+td:nth-child(4)::first-letter{
+  font-size: larger;
+  font-weight: bold;
+}
+/*Pseudoelemento seleccionará la primera celda dentro de los tds que haya en un tr*/
+td:first-child{
+  font-weight: bold;
+}
+
+/*Este keyframe hara que el titulo de la pagina aparezca como si se estuviese escribiendo*/
 @keyframes writting {
   0% {
     width: 0;
@@ -331,6 +342,7 @@ th{
   }
 }
 
+/*Keyframe que rota la una imagen*/
 @keyframes rotateImage {
   0% {
       transform: rotate(0deg);
